@@ -22,9 +22,9 @@ import Profile from './pages/Profile';
 
 function App() {
   return (
-    <div className="flex">
+    <div className="flex h-screen overflow-hidden justify-between">
       <SideBar />
-      <div className="flex-grow">
+      <div className="flex-1 overflow-auto">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />

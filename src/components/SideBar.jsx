@@ -11,7 +11,7 @@ const SideBar = () => {
     const toggleSidebar = () => setIsExpanded(prev => !prev);
 
     return (
-<div className={`fixed top-0 left-0 h-screen ${isExpanded ? 'w-64' : 'w-18'} bg-black gap-5 flex flex-col border-r border-black pt-11 pr-3 pl-3 pb-14 transition-all duration-300`}>
+<div className={`h-screen ${isExpanded ? 'w-64' : 'w-18'} bg-black gap-5 flex flex-col border-r border-black pt-11 pr-3 pl-3 pb-14 transition-all duration-300`}>
         
     <button className='flex items-center justify-center 'onClick={toggleSidebar}>
     <NavBarIcon icon={<LastPageIcon />} />
@@ -20,20 +20,20 @@ const SideBar = () => {
     <div className='flex flex-col justify-between h-full'>
         <div className='flex flex-col gap-4'>
 
-        <NavLink to="/" className={({ isActive }) => isActive ? 'bg-CompanyOrange rounded-md p-1' : 'p-1'} >
+        <NavLink to="/" className= {({ isActive }) => isActive ? 'bg-CompanyOrange rounded-md p-1' : 'p-1  border border-transparent hover:duration-300 hover:border hover:rounded-md hover:border-white'} >
             <NavBarIcon icon={<HomeFilledIcon />} />
         </NavLink>
 
-        <NavLink to="/search" className={({ isActive }) => isActive ? 'bg-CompanyOrange rounded-md p-1' : 'p-1'} >
+        <NavLink to="/search" className={({ isActive }) => isActive ? 'bg-CompanyOrange rounded-md p-1' : 'p-1 border border-transparent hover:duration-300 hover:border hover:rounded-md hover:border-white'} >
             <NavBarIcon icon={<SearchIcon />} />
         </NavLink>
 
-        <NavLink to="/friends" className={({ isActive }) => isActive ? 'bg-CompanyOrange rounded-md p-1' : 'p-1'} >
+        <NavLink to="/friends" className={({ isActive }) => isActive ? 'bg-CompanyOrange rounded-md p-1' : 'p-1 border border-transparent hover:duration-300 hover:border hover:rounded-md hover:border-white'} >
             <NavBarIcon icon={<GroupIcon />} />
         </NavLink>        
         </div>
 
-        <NavLink to="/profile" className={({ isActive }) => isActive ? 'bg-CompanyOrange rounded-md p-1' : 'p-1'} >
+        <NavLink to="/profile" className={({ isActive }) => isActive ? 'bg-CompanyOrange rounded-md p-1' : 'p-1 border border-transparent hover:duration-300 hover:border hover:rounded-md hover:border-white'} >
             <NavBarIcon icon={<AccountCircleRoundedIcon />} />
         </NavLink>    
         </div>
@@ -42,7 +42,7 @@ const SideBar = () => {
 };
 
 const NavBarIcon = ({ icon }) => (
-<div className='sidebar-icon text-white'>
+<div className='sidebar-icon text-white '>
 {icon}
 </div>
 )
