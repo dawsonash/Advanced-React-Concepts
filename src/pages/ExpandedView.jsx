@@ -1,5 +1,5 @@
 //clean up formatting in future
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import SideBar from "../components/SideBar";
 import mapImage from '../assets/map.png';
 import Card from "../components/Card";
@@ -14,8 +14,9 @@ import WeatherCard from "../components/WeatherCard";
 function ExpandedView({name, date, location}){
     const [ fix, setFix] = useState(false);
 
+
     function setFixed() {
-        if (window.scrollY >= 0 && window.scrollY <= 1677){
+        if (window.scrollY >= 0 && window.scrollY <= 800){
             setFix(true)
         } else {
             setFix(false)
@@ -25,10 +26,9 @@ function ExpandedView({name, date, location}){
     window.addEventListener("scroll", setFixed)
 
 return (
-        <div className='flex'>
-            <SideBar />
-            <div className="flex flex-col">
-                <div className="flex w-screen gap-16">
+        <div className='flex pt-10 pl-18 '>
+            <div className="flex flex-col ">
+                <div className="flex w-screen gap-16 ">
                     <div className='flex flex-col '>
                         <div className='inline-flex flex-col justify-center gap-5'>
                                 <h1 className='font-heading text-3xl text-left'>{name}</h1>
@@ -38,7 +38,7 @@ return (
                                 </div>
                         </div>
 
-                            <div className={fix ? 'sticky top-25' : ''}>
+                            <div className={fix ? 'sticky top-4 ' : ''}>
                                 <img src={mapImage} alt="Map" className='pt-25 w-210 h-auto'/>
                             </div>
                         
@@ -47,9 +47,8 @@ return (
                             <Card title='title'>
                                 <CardText />
                             </Card>
-                            <Card title='Weather' children={<WeatherCard location={location} />}>
+                            <Card title='Weather' children={<WeatherCard location={location} />} />
                                 
-                            </Card>
                             <WebsiteLink />
                         </div>
                     </div>

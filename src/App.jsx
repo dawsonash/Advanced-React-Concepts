@@ -16,7 +16,7 @@ import WeatherCard from './components/WeatherCard'
 import { Routes, Route } from 'react-router-dom';
 import SideBar from './components/SideBar';
 import Home from './pages/Home';
-import Search from './pages/Search';
+import Search from './pages/ExpandedView';
 import Friends from './pages/Friends';
 import Profile from './pages/Profile';
 
@@ -27,7 +27,7 @@ function App() {
       <div className="flex-1 overflow-auto">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
+          <Route path="/search" element={<Search location="Boulder" name="Bolder Boulder" date="May 26" />} />
           <Route path="/friends" element={<Friends />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>

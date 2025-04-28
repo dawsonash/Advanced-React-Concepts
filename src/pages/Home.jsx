@@ -8,11 +8,12 @@ import TerrainCard from "../components/TerrainCard";
 import FriendActivityCard from "../components/FriendActivityCard";
 function Home() {
     return(
-        <div className='flex justify-center items-center w-full'>
+        <div className='flex justify-center w-full'>
                 <div className='flex flex-col gap-3  w-full p-8'>
                     <h1 className='font-heading text-4xl text-left'>Home</h1>
 
-                    <div className='flex flex-wrap w-full gap-10'>
+                    <div className='flex justify-center  w-full h-auto'>
+                        <div className="flex flex-wrap gap-10  place-content-center ">
                         <PersonalGrowthCard>
                             <CardLineGraph dataPoints={12}/>
                         </PersonalGrowthCard>
@@ -28,7 +29,7 @@ function Home() {
                         <CalendarCard>
                             <CalendarContents />
                         </CalendarCard>
-
+                        </div>
                     </div>
                 </div>
 

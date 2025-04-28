@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { getBaconText } from "../services/baconApi";
+import LoadingTextBlock from "./LoadingTextBlock";
 
 function CardText({}){
     const [bacon, setBacon] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         let isMounted = true;
         const fetchBacon = async () => {
+          setLoading(true);
           const fetched = [];
-          for (let i = 0; i < 3; i++) {
+          for (let i = 0; i < 6; i++) {
             try {
-              const result = await getBaconText(2); 
+              const result = await getBaconText(1); 
               if (isMounted) {    
                 fetched.push(Array.isArray(result) ? result[0] : result);
               }
@@ -19,6 +22,7 @@ function CardText({}){
           }
           if (isMounted) {
             setBacon(fetched);
+            setLoading(false);
           }
         };
         fetchBacon();
@@ -28,19 +32,15 @@ function CardText({}){
       }, []);
 return (
     <>
-    <div className='flex h-16 p-4 flex-col justify-center items-start gap-2 '>
-      <h3 className='font-heading '>categ</h3>
-        <p className='font-body'>{bacon[0]}</p>
-    </div>
-    <div className='flex h-16 p-4 flex-col justify-left items-start gap-2 '>
-      <h3 className='font-heading '>categ</h3>
-        <p className='font-body'>{bacon[1]}</p>
-    </div>
-    <div className='flex h-16 p-4 flex-col justify-center items-start gap-2 '>
-      <h3 className='font-heading '>categ</h3>
-        <p className='font-body'>{bacon[2]}</p>
-    </div>
-
+      {[0, 2, 4].map((startIndex, idx) => (
+        <LoadingTextBlock
+          key={idx}
+          loading={loading}
+          title={bacon[startIndex]}
+          text={bacon[startIndex + 1]}
+        />
+      ))}
     </>  
 );
 } export default CardText
+

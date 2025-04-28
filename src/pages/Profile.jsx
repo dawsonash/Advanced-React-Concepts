@@ -1,6 +1,9 @@
+import WeatherCard from "../components/WeatherCard";
 
 function ProfilePage () {
     return (
-        <div> Profile page </div>
+        <div> 
+            <WeatherCard location="Dallas" />
+        </div>
     )
 } export default ProfilePage;
