@@ -16,7 +16,7 @@ function ExpandedView({name, date, location}){
 
 
     function setFixed() {
-        if (window.scrollY >= 0 && window.scrollY <= 800){
+        if (window.scrollY >= 50 && window.scrollY <= 800){
             setFix(true)
         } else {
             setFix(false)

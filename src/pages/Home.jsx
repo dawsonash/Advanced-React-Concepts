@@ -10,9 +10,9 @@ function Home() {
     return(
         <div className='flex justify-center w-full'>
                 <div className='flex flex-col gap-3  w-full p-8'>
-                    <h1 className='font-heading text-4xl text-left'>Home</h1>
 
-                    <div className='flex justify-center  w-full h-auto'>
+                    <div className='flex flex-col justify-center  w-full h-auto'>
+                    <h1 className='font-heading text-4xl text-left pb-10'>Home</h1>
                         <div className="flex flex-wrap gap-10  place-content-center ">
                         <PersonalGrowthCard>
                             <CardLineGraph dataPoints={12}/>
