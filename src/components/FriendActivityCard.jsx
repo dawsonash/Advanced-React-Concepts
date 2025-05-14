@@ -12,7 +12,7 @@ function FriendActivityCard({ children }) {
       </div>
       <div
         className="flex flex-col place-content-between item-start self-stretch h-90 py-8 px-2
-        dark:bg-white/44 bg-gradient-to-br bg-gray-200 rounded-lg border-2 border-white/12"
+        dark:bg-white/44 bg-gradient-to-br bg-gray-300 rounded-lg border-2 border-white/12"
       >
         {children}
       </div>

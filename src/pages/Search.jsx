@@ -19,7 +19,7 @@ function Search() {
     }
   };
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center w-full min-h-screen px-10">
       <div className="flex-1">
         <div className="flex gap-2 mb-4">
           <input
@@ -41,8 +41,8 @@ function Search() {
         {console.log(races)}
         <RaceAccordian
           Name={races.title}
-          Date="Date"
-          Distance="Distance"
+          Date={races.timestamp}
+          Distance={races.description}
           Extract={races.extract}
           ImgSrc={races.originalimage?.source}
         />

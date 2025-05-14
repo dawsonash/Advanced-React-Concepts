@@ -1,10 +1,10 @@
-function MainCTA(title, icon) {
+function MainCTA({ title, icon }) {
   return (
     <button
       className="flex py-5 px-8 justify-center h-12 items-center gap-2 flex-[1-0-0%] border-r-8 bg-[#FA9F42]
-    hover:bg-CompanyOrange"
+    hover:bg-CompanyOrange w-full"
     >
-      <span className="font-heading text-black">{title}</span>
+      <span className=" dark:text-white font-heading text-black">{title}</span>
       {icon}
     </button>
   );

@@ -7,33 +7,31 @@ import PersonalGrowthCard from "../components/PersonalGrowthCard";
 import TerrainCard from "../components/TerrainCard";
 import FriendActivityCard from "../components/FriendActivityCard";
 function Home() {
-    return(
-        <div className='flex justify-center w-full'>
-                <div className='flex flex-col gap-3  w-full p-8'>
+  return (
+    <div className="flex justify-center w-full dark">
+      <div className="flex flex-col gap-3  w-full p-8">
+        <div className="flex flex-col justify-center  w-full h-auto">
+          <h1 className="font-heading text-4xl text-left pb-10">Home</h1>
+          <div className="flex flex-wrap gap-10  place-content-center ">
+            <PersonalGrowthCard>
+              <CardLineGraph dataPoints={12} />
+            </PersonalGrowthCard>
 
-                    <div className='flex flex-col justify-center  w-full h-auto'>
-                    <h1 className='font-heading text-4xl text-left pb-10'>Home</h1>
-                        <div className="flex flex-wrap gap-10  place-content-center ">
-                        <PersonalGrowthCard>
-                            <CardLineGraph dataPoints={12}/>
-                        </PersonalGrowthCard>
+            <FriendActivityCard>
+              <CardText />
+            </FriendActivityCard>
 
-                        <FriendActivityCard>
-                            <CardText />
-                        </FriendActivityCard> 
-                        
-                        <TerrainCard>
-                            <CardPieChart dataPoints={3}/>
-                        </TerrainCard>
+            <TerrainCard>
+              <CardPieChart dataPoints={3} />
+            </TerrainCard>
 
-                        <CalendarCard>
-                            <CalendarContents />
-                        </CalendarCard>
-                        </div>
-                    </div>
-                </div>
-
+            <CalendarCard>
+              <CalendarContents />
+            </CalendarCard>
+          </div>
         </div>
-    );
-
-} export default Home;
+      </div>
+    </div>
+  );
+}
+export default Home;

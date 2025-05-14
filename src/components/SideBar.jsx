@@ -5,7 +5,7 @@ import GroupIcon from "@mui/icons-material/Group";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Switch } from "@/components/switch";
+import DarkModeButton from "./DarkModeButton";
 
 const SideBar = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,7 +15,7 @@ const SideBar = () => {
     <div
       className={`h-screen 
         ${isExpanded ? "w-40" : "w-18"}
-         dark:bg-gray-950 bg-gray-200 gap-5 flex flex-col border-r border-gray-700 border-black pl-3 pr-3 pt-11 pb-14 transition-all duration-300`}
+         dark:bg-gray-950 bg-gray-300 gap-5 flex flex-col border-r border-gray-700 border-black pl-3 pr-3 pt-11 pb-14 transition-all duration-300`}
     >
       <button
         aria-label="Toggle sidebar"
@@ -83,23 +83,23 @@ const SideBar = () => {
             />
           </NavLink>
         </div>
-
-        <Switch></Switch>
-        <NavLink
-          to="/profile"
-          aria-label="Profile"
-          className={({ isActive }) =>
-            isActive
-              ? "bg-CompanyOrange rounded-md p-1"
-              : "p-1 border border-transparent hover:duration-300 hover:border hover:rounded-md hover:border-white"
-          }
-        >
-          <NavBarIcon
-            icon={<AccountCircleRoundedIcon />}
-            name="Profile"
-            isExpanded={isExpanded}
-          />
-        </NavLink>
+        <div>
+          <NavLink
+            to="/profile"
+            aria-label="Profile"
+            className={({ isActive }) =>
+              isActive
+                ? "bg-CompanyOrange rounded-md p-1"
+                : "p-1 border border-transparent hover:duration-300 hover:border hover:rounded-md hover:border-white"
+            }
+          >
+            <NavBarIcon
+              icon={<AccountCircleRoundedIcon />}
+              name="Profile"
+              isExpanded={isExpanded}
+            />
+          </NavLink>
+        </div>
       </div>
     </div>
   );
@@ -112,8 +112,11 @@ const NavBarIcon = ({ icon, name, isExpanded }) => (
     }`}
   >
     <div className="flex-shrink-0 dark:text-white">{icon}</div>
-    {isExpanded && <div className="flex-1 text-left font-heading">{name}</div>}
+    {isExpanded && (
+      <div className="flex-1 text-left font-heading dark:text-white">
+        {name}
+      </div>
+    )}
   </div>
 );
-
 export default SideBar;
