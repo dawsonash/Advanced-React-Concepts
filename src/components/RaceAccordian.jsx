@@ -1,11 +1,10 @@
 import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import { useState } from "react";
 import Card from "./Card";
-import MainCTA from "./MainCTA";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
 import { useNavigate } from "react-router-dom";
 
-function RaceAccordian({ Name, Distance, Date, Extract, ImgSrc }) {
+function RaceAccordian({ Name, Distance, Date, Extract, ImgSrc, URL }) {
   const [isExpanded, setIsExpanded] = useState(true);
   const toggleAccordian = () => setIsExpanded((prev) => !prev);
   const navigate = useNavigate();
@@ -15,9 +14,10 @@ function RaceAccordian({ Name, Distance, Date, Extract, ImgSrc }) {
       state: {
         name: Name,
         date: Date,
-        location: Distance,
+        location: "Denver",
         extract: Extract,
         image: ImgSrc,
+        url: URL,
       },
     });
   };
@@ -47,13 +47,20 @@ function RaceAccordian({ Name, Distance, Date, Extract, ImgSrc }) {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="dark:text-black flex flex-col gap-4">
+          <div className="dark:text-black flex flex-col gap-8 justify-between">
             <Card children={Extract} />
-            <MainCTA
+            <button
               onClick={handleExpandClick}
-              title="Expand"
-              icon={<OpenInFullIcon sx={{ color: "#ffffff" }} />}
-            />
+              className="!border-CompanyOrange !border-2 h-20 hover:bg-CompanyOrange  dark:text-white "
+            >
+              Expand{" "}
+              {
+                <OpenInFullIcon
+                  fontSize="small"
+                  dark:sx={{ color: "#ffffff" }}
+                />
+              }
+            </button>
           </div>
         </div>
       )}

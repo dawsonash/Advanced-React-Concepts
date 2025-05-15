@@ -1,17 +1,18 @@
 //clean up formatting in future
 import { useState } from "react";
-import SideBar from "../components/SideBar";
-import mapImage from "../assets/map.png";
+import { useLocation } from "react-router-dom";
 import Card from "../components/Card";
-import CardText from "../components/CardText";
+
 import WebsiteLink from "../components/WebsiteLink";
 import WideCard from "../components/WideCard";
 import CardLineGraph from "../components/CardLineGraph";
 import CardPieChart from "../components/CardPieChart";
 import WeatherCard from "../components/WeatherCard";
 
-function ExpandedView({ name, date, location }) {
+function ExpandedView() {
   const [fix, setFix] = useState(false);
+  const { state } = useLocation();
+  const { name, date, location, extract, image, url } = state || {};
 
   function setFixed() {
     if (window.scrollY >= 50 && window.scrollY <= 800) {
@@ -37,19 +38,16 @@ function ExpandedView({ name, date, location }) {
             </div>
 
             <div className={fix ? "sticky top-4 " : ""}>
-              <img src={mapImage} alt="Map" className="pt-25 w-210 h-auto" />
+              <img src={image} alt="Map" className="pt-25 w-210 h-auto" />
             </div>
           </div>
           <div className="flex flex-col gap-36 mt-115">
-            <Card title="title">
-              <CardText />
-            </Card>
+            <Card title="Extract">{extract}</Card>
             <Card
               title="Weather"
               children={<WeatherCard location={location} />}
             />
-
-            <WebsiteLink />
+            <WebsiteLink url={url} />{" "}
           </div>
         </div>
 

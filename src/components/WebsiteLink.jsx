@@ -2,22 +2,31 @@
 import PlaceholderMountain from "../assets/PlaceholderMountain.png";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 
-function WebsiteLink() {
+function WebsiteLink({ url }) {
+  function handleLinkClick() {
+    window.open(url, "_blank");
+  }
   return (
-    <div
-      className="flex w-100 h-24 items-center shrink-0
-        border-2 rounded-lg back backdrop-blur-sm hover:bg-CompanyOrange transition-all transition-discrete"
+    <button
+      onClick={handleLinkClick}
+      className="flex justify-center items-center w-full !p-0"
     >
-      <img
-        src={PlaceholderMountain}
-        alt="PlaceholderMountain"
-        className=" w-23 h-auto"
-      />
-      <div className="flex justify-center items-center w-full">
-        <span className="font-body text-center ">Visit their website</span>
-        <ArrowForwardIosRoundedIcon fontSize="small" />
+      <div
+        className="flex w-100 h-24 items-center justify shrink-0
+        border-2 rounded-lg back backdrop-blur-sm hover:bg-CompanyOrange transition-all transition-discrete"
+      >
+        <img
+          src={PlaceholderMountain}
+          alt="PlaceholderMountain"
+          className=" w-23 h-auto"
+        />
+
+        <div className="flex w-full justify-center items-center">
+          <span className="font-body text-center ">Visit their website</span>
+          <ArrowForwardIosRoundedIcon fontSize="small" />
+        </div>
       </div>
-    </div>
+    </button>
   );
 }
 export default WebsiteLink;
