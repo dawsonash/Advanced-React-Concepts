@@ -83,23 +83,22 @@ const SideBar = () => {
             />
           </NavLink>
         </div>
-        <div>
-          <NavLink
-            to="/profile"
-            aria-label="Profile"
-            className={({ isActive }) =>
-              isActive
-                ? "bg-CompanyOrange rounded-md p-1"
-                : "p-1 border border-transparent hover:duration-300 hover:border hover:rounded-md hover:border-white"
-            }
-          >
-            <NavBarIcon
-              icon={<AccountCircleRoundedIcon />}
-              name="Profile"
-              isExpanded={isExpanded}
-            />
-          </NavLink>
-        </div>
+
+        <NavLink
+          to="/profile"
+          aria-label="Profile"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-CompanyOrange rounded-md p-1"
+              : "p-1 border border-transparent hover:duration-300 hover:border hover:rounded-md hover:border-white"
+          }
+        >
+          <NavBarIcon
+            icon={<AccountCircleRoundedIcon />}
+            name="Profile"
+            isExpanded={isExpanded}
+          />
+        </NavLink>
       </div>
     </div>
   );
