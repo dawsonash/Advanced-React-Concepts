@@ -67,7 +67,7 @@ const SideBar = () => {
             />
           </NavLink>
 
-          <NavLink
+          {/* <NavLink
             to="/friends"
             aria-label="Friends"
             className={({ isActive }) =>
@@ -81,7 +81,7 @@ const SideBar = () => {
               name="Friends"
               isExpanded={isExpanded}
             />
-          </NavLink>
+          </NavLink> */}
         </div>
 
         <NavLink
